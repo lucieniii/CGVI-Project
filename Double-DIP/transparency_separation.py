@@ -74,7 +74,7 @@ class TwoImagesSeparation(object):
 
     def _init_nets(self):
         data_type = torch.cuda.FloatTensor
-        pad = 'albedo'
+        pad = 'reflection'
         albedo_net = skip(
             self.input_depth, 3,
             num_channels_down=[8, 16, 32, 64, 128],
@@ -285,7 +285,7 @@ class Separation(object):
 
     def _init_nets(self):
         data_type = torch.cuda.FloatTensor
-        pad = 'albedo'
+        pad = 'reflection'
         albedo_net = skip(
             3, 3,
             num_channels_down=[8, 16, 32, 64, 128],
@@ -415,10 +415,10 @@ if __name__ == "__main__":
     #t1 = prepare_image('Double-DIP/images/texture12.jpg')
     #t2 = prepare_image('Double-DIP/images/texture16.jpg')
 
-    t1 = prepare_image('reuslts/image/Image0138.png')
+    t1 = prepare_image('reuslts/image/Image0205.png')
     t2 = prepare_image('reuslts/plane_shade.png')
     #s = Separation('textures', (t1+t2)/2)
-    t = prepare_image('d_image.png')
-    s = Separation('textures', t)
+    # t = prepare_image('d_image.png')
+    s = Separation('textures', t1)
     s.optimize()
     s.finalize()
