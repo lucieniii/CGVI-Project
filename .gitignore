@@ -11,3 +11,9 @@
 __pycache__
 
 ShapeNetCore.v2
+Double-DIP/output/*
+canny/*
+reuslts/*
+results/*
+blender/*
+models/*
